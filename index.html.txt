@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Устройства компьютера</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul {
+            font-size: 18px;
+        }
+        button {
+            margin: 10px 5px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Устройства компьютера</h1>
+
+<div id="menu">
+    <ul>
+        <li><button onclick="showSection('input')">Устройства для ввода информации</button></li>
+        <li><button onclick="showSection('output')">Устройства для вывода информации</button></li>
+        <li><button onclick="showSection('inside')">Устройства внутри системного блока</button></li>
+    </ul>
+</div>
+
+<div id="input" class="section">
+    <h2>Устройства для ввода информации</h2>
+    <ul>
+        <li>Клавиатура</li>
+        <li>Мышь</li>
+        <li>Микрофон</li>
+        <li>Сканер</li>
+    </ul>
+    <button onclick="goBack()">Назад</button>
+    <button onclick="goHome()">На главную</button>
+</div>
+
+<div id="output" class="section">
+    <h2>Устройства для вывода информации</h2>
+    <ul>
+        <li>Принтер</li>
+        <li>Колонки</li>
+        <li>Монитор</li>
+    </ul>
+    <button onclick="goBack()">Назад</button>
+    <button onclick="goHome()">На главную</button>
+</div>
+
+<div id="inside" class="section">
+    <h2>Устройства внутри системного блока</h2>
+    <ul>
+        <li>Винчестер</li>
+        <li>Оперативная память</li>
+        <li>Процессор</li>
+    </ul>
+    <button onclick="goBack()">Назад</button>
+    <button onclick="goHome()">На главную</button>
+</div>
+
+<script>
+    let historyStack = [];
+
+    function showSection(id) {
+        document.getElementById("menu").style.display = "none";
+        document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+        document.getElementById(id).style.display = "block";
+        historyStack.push("menu");
+    }
+
+    function goBack() {
+        document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+        document.getElementById("menu").style.display = "block";
+    }
+
+    function goHome() {
+        document.querySelectorAll(".section").forEach(sec => sec.style.display = "none");
+        document.getElementById("menu").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
